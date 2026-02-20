@@ -1,0 +1,4 @@
+google-genai>=1.0.0,<2.0.0
+anthropic
+streamlit==1.52.0
+aiohttp

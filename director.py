@@ -8,6 +8,10 @@ import os
 import subprocess
 import typing
 
+# Force Gemini API mode (not Vertex AI) before importing google-genai
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDQ2T9YRXKHQ12N6reiql6wvM1tl-Ls2w8"
+os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "0"
+
 import streamlit as st
 from google import genai
 from google.genai import types
@@ -369,6 +373,7 @@ def main():
 
     client = genai.Client(
         api_key="AIzaSyDQ2T9YRXKHQ12N6reiql6wvM1tl-Ls2w8",
+        vertexai=False,
     )
 
     # --- Sidebar Settings ---
