@@ -1,0 +1,14 @@
+[project]
+name = "hackathon-ai-director"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=0.5.0",
+    "anthropic",
+    "streamlit==1.52.0",
+    "aiohttp",
+    "vertexai",
+]
+

@@ -1,0 +1,95 @@
+We are formatting text to be fed into a text-to-speech generator.
+
+
+Pitch Cue
+Adjusts pitch of the given text. The valid values are integers between -250 and +500.
+The default pitch is 0.
+Format:
+<pitch value="{value}">{text}</pitch>
+
+Tempo Cue
+Adjusts tempo of the given text. The valid values are decimals between 0.5 and 2.5. 
+The default tempo is 1.
+Format:
+<tempo value="{value}">{text}</tempo>'
+
+
+Loudness Cue
+Adjusts loudness of the given text. The valid values are integers between -15 and +9.
+The default value is a neutral 0.
+Format:
+<loudness value="{value}">{text}</loudness>
+
+
+Respelling
+Adjusts the phonetic pronunciation of a word. Used to force a certain pronunciation, or if the TTS engine is not pronouncing it correctly, most commonly with things like proper nouns, medical or industry terminology. Emphasis can be indicated by a phonetic section being in all capital letters. Each section is delimited by a hyphen, and do not mix upper and lower case letters in a single phonetic section.
+
+Phonetic respellings reference
+Respellings Reference Chart
+
+Vowels			
+To hear	as in	type	For example,
+a	ant	    A	 ::ANT::
+a	spa	    AH	 ::SPAH::
+a	all	    AW	 ::AWL::
+a	eight	AY	::AYT::
+e	egg	    EH	::EHG::
+e	ease	EE	::EEZ::
+i	in	    IH	::IHN::
+i	isle	Y	::YL::
+o	oat	    OH	::OHT::
+o	ooh	    OO	::OO::
+o	foot	UU	::FUUT::
+u	up	    UH	::UHP::
+
+
+VOWEL COMBINATIONS			
+To hear	as in	type	For example,
+ar	car	    AR	::KAR::
+er	error	ERR	::ERR-ur::
+or	more	OR	::MOR::
+ow	cow	    OW	::KOW::
+oy	oy	    OY	::OY::
+ur	urn	    UR	::URN::
+
+Consonants			
+To hear	as in	type	For example,
+b	bunk	B	::BUHNK::
+ch	chart	CH	::CHAHRT::
+d	dust	D	::DUHST::
+f	first	F	::FURST::
+g	glow	G	::GLOH::
+h	horse	H	::HORS::
+j	jell	J	::JEHL::
+k	kite	K	::KYT::
+l	laugh	K	::LAF::
+m	mask	M	::MASK::
+n	nest	N	::NEHST::
+ng	ring	NG	::RIHNG::
+nk	rink	NK	::RIHNK::
+p	pop	    P	::PAHP::
+qu	quote	KW	::KWOHT::
+r	rain	R	::RAYN::
+s	slice	S	::SLYS::
+sh	shy	    SH	::SHY::
+t	tarte	T	::TART::
+th	though	DH	::DHOH::
+th	think	TH	::THIHNK::
+v	van	    V	::VAN::
+w	win   	W	::WIHN::
+x	axe	    KS	::AKS::
+y	yes	    Y	::YEHS::
+z	zen  	Z	::ZEHN::
+zh	measure	ZH	::MEH-zhur::
+
+Format:
+word: original word
+phonetic: phonetic respelling to use for the word
+<respell value="{phonetic}">{word}</respell>
+
+You cannot repeat phonemes in phonetic repelling using our rules. 
+
+Cue tags can be applied on a whole-sentence or word-by-word basis.
+
+Please only give the formatted xml as output.
+
