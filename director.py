@@ -9,7 +9,7 @@ import subprocess
 import typing
 
 # Force Gemini API mode (not Vertex AI) before importing google-genai
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDQ2T9YRXKHQ12N6reiql6wvM1tl-Ls2w8"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyB1L_a3_vZVp-BcR2bJgx-DPo3rWNRXwhI"
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "0"
 
 import streamlit as st
@@ -372,7 +372,7 @@ def main():
         st.session_state.input_text = ""
 
     client = genai.Client(
-        api_key="AIzaSyDQ2T9YRXKHQ12N6reiql6wvM1tl-Ls2w8",
+        api_key="AIzaSyB1L_a3_vZVp-BcR2bJgx-DPo3rWNRXwhI",
         vertexai=False,
     )
 
