@@ -11,7 +11,7 @@ import typing
 import streamlit as st
 from google import genai
 from google.genai import types
-from vertexai.generative_models import GenerativeModel, Part
+from google.genai import types as genai_types
 
 from avatars import AVATAR_TO_CHARACTERISTICS, AVATAR_TO_ID
 from gemini_prompt_cues import LOUDNESS_CUE, PITCH_CUE, RESPELLING, TEMPO_CUE
@@ -201,7 +201,7 @@ def get_postprocessing_plan(
     schema: typing.Dict,
     system_prompt: str,
     directive: str,
-    audio_part: Part,
+    audio_part: types.Part,
     message_history: list,
     model: str = "gemini-2.0-flash",
 ):
@@ -368,9 +368,7 @@ def main():
         st.session_state.input_text = ""
 
     client = genai.Client(
-        vertexai=True,
-        project="internal-test-environment",
-        location="us-central1",
+        api_key="AIzaSyDQ2T9YRXKHQ12N6reiql6wvM1tl-Ls2w8",
     )
 
     # --- Sidebar Settings ---
