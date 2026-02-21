@@ -22,6 +22,15 @@ _use_vertexai = st.secrets.get("GOOGLE_GENAI_USE_VERTEXAI", "0")
 os.environ["GOOGLE_API_KEY"] = _api_key
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = _use_vertexai
 
+# Debug: confirm what key/mode is active (last 4 chars only)
+import sys
+print(
+    f"[DEBUG] GOOGLE_API_KEY suffix=...{_api_key[-4:] if _api_key else 'EMPTY'} "
+    f"USE_VERTEXAI={_use_vertexai!r} "
+    f"type={type(_use_vertexai).__name__}",
+    file=sys.stderr,
+)
+
 from google import genai
 from google.genai import types
 from google.genai import types as genai_types
