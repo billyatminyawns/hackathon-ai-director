@@ -8,28 +8,17 @@ import os
 import subprocess
 import typing
 
-# Import streamlit first so we can read secrets before loading google-genai
+# Import streamlit first so we can read secrets before loading google-genai.
+# The API key must be stored in Streamlit Secrets (GOOGLE_API_KEY) — never
+# hardcoded here, to prevent it from being exposed in the public repository.
 import streamlit as st
 
-# Load API key from Streamlit Secrets if available, otherwise fall back to
-# the hardcoded key (useful for local development).
-_api_key = st.secrets.get(
-    "GOOGLE_API_KEY", "AIzaSyB1L_a3_vZVp-BcR2bJgx-DPo3rWNRXwhI"
-)
+_api_key = st.secrets["GOOGLE_API_KEY"]
 _use_vertexai = st.secrets.get("GOOGLE_GENAI_USE_VERTEXAI", "0")
 
 # Force Gemini API mode (not Vertex AI) before importing google-genai
 os.environ["GOOGLE_API_KEY"] = _api_key
-os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = _use_vertexai
-
-# Debug: confirm what key/mode is active (last 4 chars only)
-import sys
-print(
-    f"[DEBUG] GOOGLE_API_KEY suffix=...{_api_key[-4:] if _api_key else 'EMPTY'} "
-    f"USE_VERTEXAI={_use_vertexai!r} "
-    f"type={type(_use_vertexai).__name__}",
-    file=sys.stderr,
-)
+os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = str(_use_vertexai)
 
 from google import genai
 from google.genai import types
