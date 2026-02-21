@@ -3,7 +3,7 @@ import asyncio
 import json
 import base64
 from aiohttp import MultipartReader
-URL = "https://api.wellsaidlabs.com/v1/tts/stream"
+URL = "https://api.staging.wellsaidlabs.com/v1/tts/stream"
 headers = {"x-api-key": "3dc733a2-874f-4a0e-b239-201c06dc89f2",
            "Accept": "multipart/mixed"}
 
